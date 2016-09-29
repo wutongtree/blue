@@ -177,7 +177,7 @@ peer:
         tls:
             enabled: true
             rootcert:
-                file: tlsca.cert
+                file: us.blockchain.ibm.com.cert
             # The server name use to verify the hostname returned by TLS handshake
             serverhostoverride: 1f50c0c3-7ac0-4d9e-bcbf-b0162f9c360b_ca.us.blockchain.ibm.com
 
@@ -469,7 +469,7 @@ statetransfer:
 ###############################################################################
 app:
      # The Address this App will bind to for providing services
-    address: 0.0.0.0:8000
+    address: 0.0.0.0:8001
     # Whether the Peer should programmatically determine the address to bind to.
     # This case is useful for docker containers.
     addressAutoDetect: false
