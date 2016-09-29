@@ -139,7 +139,7 @@ func deployChaincode(string) error {
 		}
 	}
 
-	deployerSecret := os.Getenv("A_APP_Blue_DEPLOYERSECRET")
+	deployerSecret := os.Getenv("CORE_APP_BLUE_DEPLOYERSECRET")
 	if deployerSecret == "" {
 		deployerSecret = viper.GetString("app.blue.deployerSecret")
 		if deployerSecret == "" {
