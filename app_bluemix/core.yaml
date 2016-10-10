@@ -89,13 +89,13 @@ peer:
     # The networkId allows for logical seperation of networks
     # networkId: dev
     # networkId: test
-    networkId: 1f50c0c3-7ac0-4d9e-bcbf-b0162f9c360b
+    networkId: df84d8a1-89f9-42ae-a4b4-a21d87afb937
 
     # The Address this Peer will listen on
     listenAddress: 0.0.0.0:7051
     # The Address this Peer will bind to for providing services
     #address: 0.0.0.0:7051
-    address: 1f50c0c3-7ac0-4d9e-bcbf-b0162f9c360b_vp0.us.blockchain.ibm.com:30303
+    address: df84d8a1-89f9-42ae-a4b4-a21d87afb937_vp0.us.blockchain.ibm.com:30303
     # Whether the Peer should programmatically determine the address to bind to.
     # This case is useful for docker containers.
     addressAutoDetect: false
@@ -159,27 +159,27 @@ peer:
         enabled:  true
         cert:
             #file: /var/hyperledger/production/crypto/peer/user_type1_4f24db9524/ks/raw/tls.cert
-            file: /var/hyperledger/production/crypto/client/user_type2_f8038b3825/ks/raw/tls.cert_bak
+            file: /var/hyperledger/df84d8a1-89f9-42ae-a4b4-a21d87afb937/crypto/client/user_type1_53757caf21/ks/raw/tls.cert
         key:
             #file: /var/hyperledger/production/crypto/peer/user_type1_4f24db9524/ks/raw/tls.key
-            file: /var/hyperledger/production/crypto/client/user_type2_f8038b3825/ks/raw/tls.key_bak
+            file: /var/hyperledger/df84d8a1-89f9-42ae-a4b4-a21d87afb937/crypto/client/user_type1_53757caf21-df84d8a1/ks/raw/tls.key
         # The server name use to verify the hostname returned by TLS handshake
-        serverhostoverride: user_type1_4f24db9524-6aa8ddec-dd42-45f4-9efc-0911739dba69.us.blockchain.ibm.com
+        serverhostoverride: user_type1_53757caf21-df84d8a1-89f9-42ae-a4b4-a21d87afb937.us.blockchain.ibm.com
 
     # PKI member services properties
     pki:
         eca:
-            paddr: 1f50c0c3-7ac0-4d9e-bcbf-b0162f9c360b_ca.us.blockchain.ibm.com:30303
+            paddr: df84d8a1-89f9-42ae-a4b4-a21d87afb937_ca.us.blockchain.ibm.com:30303
         tca:
-            paddr: 1f50c0c3-7ac0-4d9e-bcbf-b0162f9c360b_ca.us.blockchain.ibm.com:30303
+            paddr: df84d8a1-89f9-42ae-a4b4-a21d87afb937_ca.us.blockchain.ibm.com:30303
         tlsca:
-            paddr: 1f50c0c3-7ac0-4d9e-bcbf-b0162f9c360b_ca.us.blockchain.ibm.com:30303
+            paddr: df84d8a1-89f9-42ae-a4b4-a21d87afb937_ca.us.blockchain.ibm.com:30303
         tls:
             enabled: true
             rootcert:
                 file: us.blockchain.ibm.com.cert
             # The server name use to verify the hostname returned by TLS handshake
-            serverhostoverride: 1f50c0c3-7ac0-4d9e-bcbf-b0162f9c360b_ca.us.blockchain.ibm.com
+            serverhostoverride: df84d8a1-89f9-42ae-a4b4-a21d87afb937_ca.us.blockchain.ibm.com
 
     # Peer discovery settings.  Controls how this peer discovers other peers
     discovery:
@@ -215,7 +215,7 @@ peer:
         touchMaxNodes: 100
 
     # Path on the file system where peer will store data
-    fileSystemPath: /var/hyperledger/production
+    fileSystemPath: /var/hyperledger/df84d8a1-89f9-42ae-a4b4-a21d87afb937
 
 
     profile:
@@ -394,7 +394,7 @@ security:
     # To enable privacy of transactions (requires security to be enabled). This
     # encrypts the transaction content during transit and at rest. The state
     # data is also encrypted
-    privacy: true
+    privacy: false
 
     # Can be 256 or 384. If you change here, you have to change also
     # the same property in membersrvc.yaml to the same value
@@ -478,19 +478,19 @@ app:
     gomaxprocs: -1
     workers: 2
 
-    # Setting for notarization. 
+    # Setting for notarization.
     notarization:
         # chaincode path
         chaincodePath: "github.com/wutongtree/notarization/chaincode_bluemix"
-        deployerID: "user_type2_f8038b3825"
-        deployerSecret: "e6dfbd72a3"
-    
-    # Setting for notarization. 
+        deployerID: "user_type1_53757caf21"
+        deployerSecret: "26997f5cfe"
+
+    # Setting for blue`
     blue:
         # chaincode path
         chaincodePath: "github.com/wutongtree/blue/chaincode_bluemix"
-        deployerID: "user_type2_f8038b3825"
-        deployerSecret: "e6dfbd72a3"
+        deployerID: "user_type1_53757caf21"
+        deployerSecret: "26997f5cfe"
 
     # Sync related configuration
     sync:
@@ -601,7 +601,7 @@ app:
         touchMaxNodes: 100
 
     # Path on the file system where peer will store data
-    fileSystemPath: /var/hyperledger/production
+    fileSystemPath: /var/hyperledger/df84d8a1-89f9-42ae-a4b4-a21d87afb937
 
 
     profile:
