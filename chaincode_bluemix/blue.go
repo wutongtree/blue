@@ -57,17 +57,16 @@ func (t *BlueChaincode) send(stub *shim.ChaincodeStub, args []string) ([]byte, e
 
 // offer offer transactions
 // args[0]: sender
-// args[1]: receiver
+// args[1]: takerGets
 // args[2]: takerPays
-// args[3]: currency
-// args[4]: timestr
+// args[3]: timestr
 func (t *BlueChaincode) offer(stub *shim.ChaincodeStub, args []string) ([]byte, error) {
 	logger.Debugf("+++++++++++++++++++++++++++++++++++ send in chaincode +++++++++++++++++++++++++++++++++")
 	logger.Debugf("send args: %v", args)
 
 	// parse arguments
-	if len(args) != 5 {
-		return nil, errors.New("Incorrect number of arguments. Expecting 5")
+	if len(args) != 4 {
+		return nil, errors.New("Incorrect number of arguments. Expecting 4")
 	}
 
 	sender := args[0]
