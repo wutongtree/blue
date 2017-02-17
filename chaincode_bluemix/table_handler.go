@@ -33,7 +33,7 @@ func NewBlueHandler() *tableHandler {
 
 // createTable
 // stub: chaincodestub
-func (t *tableHandler) createTable(stub *shim.ChaincodeStub) error {
+func (t *tableHandler) createTable(stub shim.ChaincodeStubInterface) error {
 
 	// Create send table
 	err := stub.CreateTable(tableSend, []*shim.ColumnDefinition{
@@ -70,7 +70,7 @@ func (t *tableHandler) createTable(stub *shim.ChaincodeStub) error {
 // amount: amount
 // currency: currency
 // timestamp: timestamp
-func (t *tableHandler) submitSend(stub *shim.ChaincodeStub,
+func (t *tableHandler) submitSend(stub shim.ChaincodeStubInterface,
 	sender string,
 	receiver string,
 	amount string,
@@ -103,7 +103,7 @@ func (t *tableHandler) submitSend(stub *shim.ChaincodeStub,
 // takerGets: takerGets
 // takerPays: takerPays
 // timestamp: timestamp
-func (t *tableHandler) submitOffer(stub *shim.ChaincodeStub,
+func (t *tableHandler) submitOffer(stub shim.ChaincodeStubInterface,
 	sender string,
 	takerGets string,
 	takerPays string,

@@ -31,7 +31,7 @@ type BlueChaincode struct {
 // args[2]: amount
 // args[3]: currency
 // args[4]: timestr
-func (t *BlueChaincode) send(stub *shim.ChaincodeStub, args []string) ([]byte, error) {
+func (t *BlueChaincode) send(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
 	logger.Debugf("+++++++++++++++++++++++++++++++++++ send in chaincode +++++++++++++++++++++++++++++++++")
 	logger.Debugf("send args: %v", args)
 
@@ -60,7 +60,7 @@ func (t *BlueChaincode) send(stub *shim.ChaincodeStub, args []string) ([]byte, e
 // args[1]: takerGets
 // args[2]: takerPays
 // args[3]: timestr
-func (t *BlueChaincode) offer(stub *shim.ChaincodeStub, args []string) ([]byte, error) {
+func (t *BlueChaincode) offer(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
 	logger.Debugf("+++++++++++++++++++++++++++++++++++ send in chaincode +++++++++++++++++++++++++++++++++")
 	logger.Debugf("send args: %v", args)
 
@@ -85,7 +85,7 @@ func (t *BlueChaincode) offer(stub *shim.ChaincodeStub, args []string) ([]byte, 
 // ----------------------- CHAINCODE ----------------------- //
 
 // Init initialization, this method will create asset despository in the chaincode state
-func (t *BlueChaincode) Init(stub *shim.ChaincodeStub, function string, args []string) ([]byte, error) {
+func (t *BlueChaincode) Init(stub shim.ChaincodeStubInterface, function string, args []string) ([]byte, error) {
 	logger.Debugf("********************************Init****************************************")
 
 	logger.Info("[BlueChaincode] Init")
@@ -98,7 +98,7 @@ func (t *BlueChaincode) Init(stub *shim.ChaincodeStub, function string, args []s
 
 // Invoke  method is the interceptor of all invocation transactions, its job is to direct
 // invocation transactions to intended APIs
-func (t *BlueChaincode) Invoke(stub *shim.ChaincodeStub, function string, args []string) ([]byte, error) {
+func (t *BlueChaincode) Invoke(stub shim.ChaincodeStubInterface, function string, args []string) ([]byte, error) {
 	logger.Debugf("********************************Invoke****************************************")
 
 	//	 Handle different functions
@@ -115,7 +115,7 @@ func (t *BlueChaincode) Invoke(stub *shim.ChaincodeStub, function string, args [
 
 // Query method is the interceptor of all invocation transactions, its job is to direct
 // query transactions to intended APIs, and return the result back to callers
-func (t *BlueChaincode) Query(stub *shim.ChaincodeStub, function string, args []string) ([]byte, error) {
+func (t *BlueChaincode) Query(stub shim.ChaincodeStubInterface, function string, args []string) ([]byte, error) {
 	logger.Debugf("********************************Query****************************************")
 
 	return nil, errors.New("Received unknown function query invocation with function " + function)
