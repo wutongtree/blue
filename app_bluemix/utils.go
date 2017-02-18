@@ -156,10 +156,17 @@ func deployChaincode(string) error {
 	deployerClient = client
 
 	// Prepare the spec. The metadata includes the identity of the administrator
+	// spec := &pb.ChaincodeSpec{
+	// 	Type:                 1,
+	// 	ChaincodeID:          &pb.ChaincodeID{Path: chaincodePath},
+	// 	CtorMsg:              &pb.ChaincodeInput{Function: "init"},
+	// 	ConfidentialityLevel: confidentialityLevel,
+	// }
+
 	spec := &pb.ChaincodeSpec{
 		Type:                 1,
 		ChaincodeID:          &pb.ChaincodeID{Path: chaincodePath},
-		CtorMsg:              &pb.ChaincodeInput{Function: "init"},
+		CtorMsg:              &pb.ChaincodeInput{Args: util.ToChaincodeArgs("init")},
 		ConfidentialityLevel: confidentialityLevel,
 	}
 

@@ -10,6 +10,8 @@ import (
 	"github.com/spf13/cobra"
 
 	"github.com/gocraft/web"
+	// "github.com/hyperledger/fabric/common/util"
+	"github.com/hyperledger/fabric/core/util"
 	pb "github.com/hyperledger/fabric/protos"
 	"github.com/spf13/viper"
 )
@@ -105,15 +107,19 @@ func (s *BlueAPP) Send(rw web.ResponseWriter, req *web.Request) {
 	timestr := time.Now().In(location).String()
 
 	args := []string{
+		"send",
 		sender,
 		receiver,
 		amount,
 		currency,
 		timestr}
 
+	// chaincodeInput := &pb.ChaincodeInput{
+	// 	Function: "send",
+	// 	Args:     args,
+	// }
 	chaincodeInput := &pb.ChaincodeInput{
-		Function: "send",
-		Args:     args,
+		Args: util.ToChaincodeArgs(args...),
 	}
 
 	// invoke chaincode
@@ -167,14 +173,18 @@ func (s *BlueAPP) Offer(rw web.ResponseWriter, req *web.Request) {
 	timestr := time.Now().In(location).String()
 
 	args := []string{
+		"offer",
 		sender,
 		takerGets,
 		takerPays,
 		timestr}
 
+	// chaincodeInput := &pb.ChaincodeInput{
+	// 	Function: "offer",
+	// 	Args:     args,
+	// }
 	chaincodeInput := &pb.ChaincodeInput{
-		Function: "offer",
-		Args:     args,
+		Args: util.ToChaincodeArgs(args...),
 	}
 
 	// invoke chaincode
