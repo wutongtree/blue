@@ -10,7 +10,6 @@ import (
 	"github.com/spf13/cobra"
 
 	"github.com/gocraft/web"
-	// "github.com/hyperledger/fabric/common/util"
 	"github.com/hyperledger/fabric/core/util"
 	pb "github.com/hyperledger/fabric/protos"
 	"github.com/spf13/viper"
@@ -114,10 +113,6 @@ func (s *BlueAPP) Send(rw web.ResponseWriter, req *web.Request) {
 		currency,
 		timestr}
 
-	// chaincodeInput := &pb.ChaincodeInput{
-	// 	Function: "send",
-	// 	Args:     args,
-	// }
 	chaincodeInput := &pb.ChaincodeInput{
 		Args: util.ToChaincodeArgs(args...),
 	}
@@ -179,10 +174,6 @@ func (s *BlueAPP) Offer(rw web.ResponseWriter, req *web.Request) {
 		takerPays,
 		timestr}
 
-	// chaincodeInput := &pb.ChaincodeInput{
-	// 	Function: "offer",
-	// 	Args:     args,
-	// }
 	chaincodeInput := &pb.ChaincodeInput{
 		Args: util.ToChaincodeArgs(args...),
 	}
